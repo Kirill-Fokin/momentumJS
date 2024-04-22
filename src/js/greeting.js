@@ -4,18 +4,13 @@ export const initGreeting = function() {
 
   const inputName = document.querySelector('.name')
    const data = JSON.parse(localStorage.getItem('data'))
-   console.log(data)
-   
    if (data) {
     inputName.value = data.name
    } 
 
-    const state = {
-      name: null,
-    }
-
-
-    
+   const state = {
+    name: null,
+  }
 
   function showDate() {
     const date = new Date();
@@ -25,10 +20,7 @@ export const initGreeting = function() {
       timeZone: "UTC",    
     };
 
-    console.log(getWeekDay(date) )
-
     const currentDate = date.toLocaleDateString("ru", options);
-    console.log(getTimeOfDay(date));
     document.querySelector('.date').textContent = getWeekDay(date) + ', ' + currentDate ;
     document.querySelector('.greeting').textContent = getTimeOfDay(date)
   }

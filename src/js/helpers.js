@@ -21,3 +21,10 @@ export function getTimeOfDay(date) {
   if (currentTime >= 12 && currentTime <= 1) return 'Добрый день';
   if (currentTime >= 18 && currentTime <= 1) return 'Добрый вечер';
 }
+
+
+export function randomInteger(min, max) {
+  // случайное число от min до (max+1)
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
