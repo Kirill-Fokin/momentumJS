@@ -12,6 +12,4 @@ export async function initWeather(key, city='минск') {
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.round(data.main.temp)}°C`;
   weatherDescription.textContent = data.weather[0].description;
-
-  
 }
