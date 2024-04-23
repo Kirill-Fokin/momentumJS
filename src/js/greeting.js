@@ -7,6 +7,7 @@ export const initGreeting = function() {
    if (data) {
     inputName.value = data.name
    } 
+   
 
    const state = {
     name: null,
@@ -30,18 +31,16 @@ export const initGreeting = function() {
     const currentTime = date.toLocaleTimeString();
     document.querySelector('.time').textContent = currentTime;
     showDate()
-     
-
     setTimeout(showTime, 1000);
   }
   showTime();
 
 
 
-
-  inputName.addEventListener('change', () => {state.name = inputName.value;
-    let json = JSON.stringify(state);
-    localStorage.setItem("data", json);
-});
+  
+  inputName.addEventListener('change', () => {
+    state.name = inputName.value;
+    sendJson(state);
+  });
 
 }

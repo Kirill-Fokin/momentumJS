@@ -28,3 +28,8 @@ export function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
+
+export function sendJson(data) {
+  const json = JSON.stringify(state);
+localStorage.setItem("data", json);
+}
