@@ -284,3 +284,92 @@ body {
     padding: 5px;
   }
 }
+
+.audio-field {
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.051);
+  transition: all 1s;
+  /* height: 400px; */
+}
+
+.audio-field li {
+  list-style: none;
+  padding: 10px;
+ border: 1px solid rgba(128, 128, 128, 0.419);
+}
+
+.audio-field li:hover {
+  background-color: rgba(128, 128, 128, 0.322);;
+}
+
+.none {
+  display: none;
+}
+
+.audio-elem {
+  width: 300px;
+  height: 30px;
+  
+  border: 2px solid rgba(57, 55, 55, 0.379); 
+  transition: 1s;
+  background-color: red;;
+}
+
+.elem-field:hover {
+  background-color: rgba(255, 255, 255, 0.131);
+}
+
+.album {
+
+  width: 40px;
+ 
+  
+}
+
+.album__wrapper {
+  display: flex;justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  position: absolute;
+  left: 260px;
+  width: 50px;
+  height: 50px;
+  background-color: #d3cdcd7c;
+  transition: all 1s;
+}
+
+.album__wrapper:active  {
+  background-color: #3432327c;
+}
+
+.notes-field {  
+  position: absolute;
+  bottom: 200px;
+  left: 50px;
+}
+
+.note {
+  background-color: rgba(49, 94, 198, 0.079);
+  width: 400px;
+  height: 80px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-note-button {
+  background-color: rgba(106, 230, 153, 0.186);
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;;
+  color: white;
+  position: absolute;
+  top: -50px;
+  height: 40px
+}
+

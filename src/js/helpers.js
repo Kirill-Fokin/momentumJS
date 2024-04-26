@@ -1,6 +1,6 @@
 export const createElement = function(tag, ...styles) {
   const elem = document.createElement(tag);
-  elem.classList.add(...classNames);
+  elem.classList.add(...styles);
 
   return elem;
 };
@@ -15,10 +15,10 @@ export function getTimeOfDay() {
   const date = new Date()
   const currentHours = date.getHours();
   const currentMins = date.getMinutes(); 
-  if ( currentHours >= 0 && currentMins >= 1 ) return 'Night';
-  if (currentHours >= 6 && currentTime <= 1) return 'Morning';
-  if (currentTime >= 12 && currentTime <= 1) return 'Day';
-  if (currentTime >= 18 && currentTime <= 1) return 'Evening';
+  if (currentHours >= 0 && currentMins >= 1 && currentHours < 6) return 'Night';
+  if (currentHours >= 6 && currentMins >= 1 && currentHours < 12) return 'Morning';
+  if (currentHours >= 12 && currentMins >= 1  && currentHours < 18) return 'Day';
+  if (currentHours>= 18 && currentMins >= 1 && currentHours  !== 0)  return 'Evening';
 }
 
 export function randomInteger(min, max) {
@@ -31,3 +31,4 @@ export function sendJson(data) {
   const json = JSON.stringify(state);
   localStorage.setItem("data", json);
 }
+

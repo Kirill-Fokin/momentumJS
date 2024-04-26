@@ -4,7 +4,7 @@ export async function initQuotes() {
   const quote = document.querySelector('.quote')
   const author = document.querySelector('.author')
 
-  const data = 'js/data.json';
+  const data =  'https://type.fit/api/quotes'
   const res = await fetch(data);
   const quotes = await res.json()
   quote.textContent = quotes[1].text
