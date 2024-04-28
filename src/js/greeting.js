@@ -7,7 +7,7 @@ export const initGreeting = function() {
   }
   const data = JSON.parse(localStorage.getItem('data'))
   if (data) { 
-    inputName.value = data.name
+    inputName.value = data.name;
   }
   showTime();
 
@@ -17,6 +17,7 @@ export const initGreeting = function() {
 
   inputName.addEventListener('change', () => {
     state.name = inputName.value;
+    console.log(state)
   });
 
   function showTime() {

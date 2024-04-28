@@ -344,8 +344,12 @@ body {
 
 .notes-field {  
   position: absolute;
-  bottom: 200px;
+  bottom: 0px;
   left: 50px;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.417) !important;
 }
 
 .note {

@@ -11,18 +11,17 @@ window.state = {
  }
 
 if (JSON.parse(localStorage.getItem(('state')))) {
-    window.state = JSON.parse(localStorage.getItem(('state')));
+  window.state = JSON.parse(localStorage.getItem(('state')));
 }
- 
  
 window.addEventListener('load', () => {
   console.log(JSON.parse(localStorage.getItem(('state'))));
-  if (window.state !== null)  window.state = JSON.parse(localStorage.getItem(('state')));
+  if (window.state === null)  window.state = JSON.parse(localStorage.getItem(('state')));
   console.log(state)
-  });
+});
 
 window.addEventListener('beforeunload', () => {
-  localStorage.setItem('state', JSON.stringify(window.state));
+  // localStorage.setItem('state', JSON.stringify(window.state));
 });
 
 
