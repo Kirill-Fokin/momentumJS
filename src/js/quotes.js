@@ -1,4 +1,4 @@
-import { randomInteger, sendJson } from "./helpers.js";
+import { randomInteger } from "./helpers.js";
 
 export async function initQuotes() {
   const quote = document.querySelector('.quote')

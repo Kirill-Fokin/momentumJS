@@ -3,9 +3,7 @@ export function initUnsplash(data) {
     const img = new Image();
     img.src =  data;
     state.previosWallppapper = null;
-    img.onload = () => {
-      document.body.style.backgroundImage = data
-    };
+    img.onload = () => document.body.style.backgroundImage = data 
   }
   
   const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=Ccmp55s73gnyqV8LaWuwCJtLuaudIguxAIxiMZBc1vo'

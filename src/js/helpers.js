@@ -27,8 +27,7 @@ export function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
-export function sendJson(data) {
-  const json = JSON.stringify(state);
-  localStorage.setItem("data", json);
+export function  isNullOrUndefined(value) {
+  return value !== null && value !== undefined;
 }
 

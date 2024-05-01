@@ -1,14 +1,20 @@
-import { createElement } from "./helpers.js"
+import { createElement, isNullOrUndefined } from "./helpers.js"
 
 export function initNotes() {
   const notesField = createElement('div', 'notes-field');
   const addNoteButton = createElement('button', 'add-note-button');
   addNoteButton.textContent  = '+';
   notesField.append(addNoteButton);
-  addNoteButton.addEventListener('click', () => notesField.append(createNewNote()))
-  document.querySelector('.footer').prepend(notesField);
+  addNoteButton.addEventListener('click', () => {
+     const text = prompt();
+     if (text !== '' && text !== undefined && text !== null ) {
+      notesField.append(createNewNote(text))
+     }
+   })
+    document.querySelector('.footer').prepend(notesField);
   
-  const notes = getNotesLocalSotarge();
+  const notes =  getNotesLocalSotarge();
+  console.log(notes)
   notes.forEach(note => notesField.append(note));
   notes.forEach(note => state.readyNotes.forEach(readyNote =>  {
   if (note.firstChild.textContent === readyNote) {
@@ -18,25 +24,21 @@ export function initNotes() {
   ))
    
   function createNewNote(message) {
-    if (state.notes.length > 5) return 
     let text = null;
-    if (message) {
-      text = message;
-    } else {
-      text = prompt('add note text')
-    }
+    text = message;
     if (text === '') return; 
+    else {
       const note = createElement('div', 'note');
       note.addEventListener('click', (e) => { 
         addNoteMenu(e.target)
-    })
+      })
     note.textContent = text;
     if (text !== 'empty') {
       state.notes.push(text);
     }
     return note;
+    }
   }
-
 
   function addNoteMenu(target) {
     if (!target.classList.contains('note')) return;
@@ -61,8 +63,10 @@ export function initNotes() {
     if (state.notes.length === 0) {
       data.push(createNewNote('empty'));
     } else {
-      state.notes = state.notes.filter(el => el == undefined || el !== null)
-      state.notes.forEach(text => data.push(createNewNote(text)));
+      console.log(state.notes)
+      state.notes = state.notes
+                           .filter(textNote => isNullOrUndefined(textNote))
+                           .forEach(text => data.push(createNewNote(text)));
     }
     return data;
   }
@@ -80,7 +84,7 @@ export function initNotes() {
     if (target.closest('.note').firstChild.textContent === 'empty' && text !== '') {
       state.notes.push('empty');
       state.notes[state.notes.indexOf(target.closest('.note').firstChild.textContent)] = text;
-        target.closest('.note').firstChild.textContent = text;
+      target.closest('.note').firstChild.textContent = text;
     } else {
       if (text !== '') {
         state.notes[state.notes.indexOf(target.closest('.note').firstChild.textContent)] = text;
