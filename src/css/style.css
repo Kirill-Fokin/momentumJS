@@ -360,6 +360,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-content: space-around;
 }
 
 .add-note-button {
@@ -377,3 +378,25 @@ body {
   height: 40px
 }
 
+.choise-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+}
+
+.red-button {
+  background-color: rgba(255, 0, 0, 0.214);
+}
+
+.blue-button {
+  background-color: rgba(0, 0, 255, 0.183);
+}
+
+.green-button {
+  background-color: rgba(0, 128, 0, 0.248);
+
+}
+.green {
+  background-color: rgba(47, 161, 47, 0.386);
+}

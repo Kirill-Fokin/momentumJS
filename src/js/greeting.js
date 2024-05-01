@@ -2,12 +2,9 @@ import { getWeekDay, getTimeOfDay, sendJson } from "./helpers.js";
 
 export const initGreeting = function() {
   const inputName = document.querySelector('.name')
+  console.log(state.name)
   if (state.name) {
     inputName.value = state.name;
-  }
-  const data = JSON.parse(localStorage.getItem('data'))
-  if (data) { 
-    inputName.value = data.name;
   }
   showTime();
 
