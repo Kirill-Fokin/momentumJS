@@ -1,4 +1,6 @@
-Simple starting page for borwsers 
+Simple starting page for browsers
+
+
 link to deploy :https://kirill-fokin.github.io/momentumJS/src/index.html
 
 
