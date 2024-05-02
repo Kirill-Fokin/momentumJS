@@ -3,26 +3,42 @@ import playList from "./playlist.js";
 
 export function initAudio() {
   const audioField = createElement('div', 'audio-field');
-  const playButton = document.querySelector('.play')
-  const nextButton = document.querySelector('.play-next')
-  const prevButton = document.querySelector('.play-prev')
-  const albumLogo = document.querySelector('.album')
-
+  const playButton = document.querySelector('.play');
+  const nextButton = document.querySelector('.play-next');
+  const prevButton = document.querySelector('.play-prev');
+  const albumLogo = document.querySelector('.album');
 
   albumLogo.addEventListener('click', () => {
     if (audioField.classList.contains('none')) {
-      audioField.classList.remove('none')
+      audioField.classList.remove('none');
     } else {
-      audioField.classList.add('none')
+      audioField.classList.add('none');
     }
   }) 
-  nextButton.addEventListener('click', () => playNext())
-  playButton.addEventListener('click', () => playAudio())
-  prevButton.addEventListener('click', () => playprev())
+
+  nextButton.addEventListener('click', () => playNext());
+  playButton.addEventListener('click', () => playAudio());
+  prevButton.addEventListener('click', () => playprev());
+
+  const audio = new Audio();
+
+  playList.forEach(el => {
+    const li = document.createElement("li");
+    li.textContent = el.title;
+    li.addEventListener('click', () => {
+      audio.pause();
+      audio.src = el.src;
+      audio.play()
+      state.isPlay = true;
+    })
+    audioField.append(li);
+   })
+  
+   document.querySelector('.player').append(audioField); 
 
   function playNext() {
     if (audio.src) {
-     audio.pause()
+     audio.pause();
      let fileName = audio.src.split('/').slice(-1)[0];
      while (fileName.includes('%')) {
        fileName = fileName.replace('%', '');
@@ -31,15 +47,11 @@ export function initAudio() {
       fileName = fileName.replace('20', ' ');
     }
 
-     let indx = playList.findIndex( item => {
-       return (item.src.split('/').slice(-1)[0] === fileName)
-     }
-      )
-      indx + 1 > playList.length - 1 ?  indx = 0 : indx++
-      console.log(indx)
-     audio.src = playList[indx ].src;
-     audio.play()
-     state.isPlay = true;
+     let indx = playList.findIndex(item => (item.src.split('/').slice(-1)[0] === fileName));
+      indx + 1 > playList.length - 1 ? indx = 0 : indx++;
+      audio.src = playList[indx ].src;
+      audio.play()
+      state.isPlay = true;
     } else {
      audio.src = playList[0].src;
      audio.play();
@@ -49,7 +61,7 @@ export function initAudio() {
 
   function playprev() {
     if (audio.src) {
-      audio.pause()
+      audio.pause();
       let fileName = audio.src.split('/').slice(-1)[0];
       while (fileName.includes('%')) {
         fileName = fileName.replace('%', '');
@@ -58,13 +70,9 @@ export function initAudio() {
        fileName = fileName.replace('20', ' ');
      }
 
-     let indx = playList.findIndex( item => {
-      return (item.src.split('/').slice(-1)[0] === fileName)
-    })
-    indx - 1 < 0 ?  indx = playList.length - 1 : indx--
-    
-    audio.src = playList[indx ].src;
-    
+     let indx = playList.findIndex(item => item.src.split('/').slice(-1)[0] === fileName);
+     indx - 1 < 0 ?  indx = playList.length - 1 : indx--
+     audio.src = playList[indx ].src;
      audio.play()
      state.isPlay = true;
     } else {
@@ -73,8 +81,6 @@ export function initAudio() {
       state.isPlay = true;
     }
   }
-  
-  const audio = new Audio();
 
   function playAudio() {
     if (audio.src && state.isPlay) {
@@ -86,18 +92,4 @@ export function initAudio() {
       state.isPlay = true;
     }
   }
-
- playList.forEach(el => {
-  const li = document.createElement("li");
-  li.textContent = el.title
-  li.addEventListener('click', () => {
-    audio.pause();
-    audio.src = el.src;
-    audio.play()
-    state.isPlay = true;
-  })
-  audioField.append(li);
- })
-
- document.querySelector('.player').append(audioField); 
 }

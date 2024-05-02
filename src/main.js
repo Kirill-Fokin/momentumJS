@@ -14,7 +14,6 @@ if (JSON.parse(localStorage.getItem(('state')))) {
   const obj = (JSON.parse(localStorage.getItem(('state'))));
   obj.notes = (obj.notes.filter(el => isNullOrUndefined(el)))
   window.state = obj;
-  console.log(state)
 }
 
 window.addEventListener('load', () => {
@@ -29,6 +28,3 @@ window.addEventListener('beforeunload', () => {
 });
 
 initApp()
-
-
-

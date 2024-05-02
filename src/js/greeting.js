@@ -9,13 +9,10 @@ export const initGreeting = function() {
 
   if (JSON.parse(localStorage.getItem(('state')))) {
     window.state = JSON.parse(localStorage.getItem(('state')));
-    console.log(window.state)
   } 
 
-  console.log(window.state)
   inputName.addEventListener('change', () => {
     state.name = inputName.value;
-    console.log(state)
   });
 
   function showTime() {
@@ -32,7 +29,7 @@ export const initGreeting = function() {
       month: "long",
       day: "numeric",
       timeZone: "UTC",    
-    };
+    }
 
     const currentDate = date.toLocaleDateString("ru", options);
     document.querySelector('.date').textContent = getWeekDay(date) + ', ' + currentDate ;

@@ -7,7 +7,7 @@ export async function initWeather(key, city='минск') {
   const link =  `https://api.openweathermap.org/data/2.5/weather?q=${city}&${language}&appid=${key}&${units}`;
 
   const resp = await fetch(link);
-  const data = await resp.json()
+  const data = await resp.json();
 
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.round(data.main.temp)}°C`;

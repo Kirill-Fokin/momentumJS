@@ -28,9 +28,6 @@ const playList = [
       src: "./assets/sounds/MGMT Time to pretend.mp3",
       duration: "04:12",
     },
-
-   
-
   ];
 
   export default playList;

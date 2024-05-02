@@ -15,12 +15,11 @@ export function initUnsplash(data) {
          state.previosWallppapper = `${data.urls.regular}`
          img.onload = () => {
           document.body.style.backgroundImage = `url(${data.urls.regular})`
-          console.log(`url(${data.urls.regular})`)
          };
         document.querySelector('.slide-prev').addEventListener('click', () => {
           if (state.previosWallppapper) initUnsplash(state.previosWallppapper)
           else initUnsplash() 
         })
         document.querySelector('.slide-next').addEventListener('click', () => initUnsplash()) 
-  })
+  });
 }

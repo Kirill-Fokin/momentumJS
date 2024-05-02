@@ -13,8 +13,8 @@ export function getWeekDay(date) {
 
 export function getTimeOfDay() {
   const date = new Date()
-  const currentHours = date.getHours();
-  const currentMins = date.getMinutes(); 
+  const currentHours = date.getHours()
+  const currentMins = date.getMinutes()
   if (currentHours >= 0 && currentMins >= 1 && currentHours < 6) return 'Night';
   if (currentHours >= 6 && currentMins >= 1 && currentHours < 12) return 'Morning';
   if (currentHours >= 12 && currentMins >= 1  && currentHours < 18) return 'Day';
@@ -30,4 +30,3 @@ export function randomInteger(min, max) {
 export function  isNullOrUndefined(value) {
   return value !== null && value !== undefined;
 }
-
